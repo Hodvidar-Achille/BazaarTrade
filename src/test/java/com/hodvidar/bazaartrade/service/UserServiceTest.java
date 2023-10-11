@@ -3,6 +3,7 @@ package com.hodvidar.bazaartrade.service;
 import com.hodvidar.bazaartrade.model.User;
 import com.hodvidar.bazaartrade.model.UserRole;
 import com.hodvidar.bazaartrade.repository.UserRepository;
+import com.hodvidar.bazaartrade.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,16 +17,16 @@ import static org.mockito.Mockito.when;
 
 // @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserServiceTest {
+class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
 
     @InjectMocks
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Test
-    public void getUserByIdTest() {
+    void getUserByIdTest() {
         User mockUser = new User(1L, "Test", "Test Address", "test@test.com", "password", UserRole.BUYER);
         when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
 

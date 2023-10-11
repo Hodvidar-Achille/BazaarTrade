@@ -55,8 +55,8 @@
             </column>
         </createTable>
         <addForeignKeyConstraint constraintName="fk_order_user"
-                                 baseTableName="Order" baseColumnNames="BuyerID"
-                                 referencedTableName="User" referencedColumnNames="ID"/>
+                                 baseTableName="Orders" baseColumnNames="BuyerID"
+                                 referencedTableName="Users" referencedColumnNames="ID"/>
 
         <createTable tableName="OrderDetails">
             <column name="ID" type="INT" autoIncrement="true">

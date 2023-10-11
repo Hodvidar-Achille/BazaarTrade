@@ -1,0 +1,53 @@
+### Java ###
+*.class
+*.log
+
+### Spring Boot ###
+# Logs
+logs/*
+# Compiled class file
+target/**
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# File-based project format
+*.bak
+*.cfg
+*.prj
+*.psm
+*.sap
+
+### MySQL ###
+# MySQL dump files
+*.sql
+*.db
+*.dump
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+### Docker ###
+# Save the Docker image in a registry instead of version controlling large image files
+*.tar
+
+### Kubernetes ###
+# Ignoring Kubernetes secrets
+secrets.yaml
+
+### Gradle ###
+.gradle/
+build/
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride

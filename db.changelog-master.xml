@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="Achille Genet">
+        <createTable tableName="Users">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="VARCHAR(255)"/>
+            <column name="Email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="Password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Role" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="Products">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Description" type="TEXT"/>
+            <column name="ImageURL" type="VARCHAR(255)"/>
+            <column name="UnitPrice" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="Orders">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="BuyerID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Timestamp" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="Status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TotalPrice" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_order_user"
+                                 baseTableName="Order" baseColumnNames="BuyerID"
+                                 referencedTableName="User" referencedColumnNames="ID"/>
+
+        <createTable tableName="OrderDetails">
+            <column name="ID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="OrderID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ProductID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UnitPrice" type="DECIMAL(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_orderdetail_order"
+                                 baseTableName="OrderDetails" baseColumnNames="OrderID"
+                                 referencedTableName="Orders" referencedColumnNames="ID"/>
+        <addForeignKeyConstraint constraintName="fk_orderdetail_product"
+                                 baseTableName="OrderDetails" baseColumnNames="ProductID"
+                                 referencedTableName="Products" referencedColumnNames="ID"/>
+    </changeSet>
+
+    <!-- Add more changeSet after this line -->
+
+</databaseChangeLog>

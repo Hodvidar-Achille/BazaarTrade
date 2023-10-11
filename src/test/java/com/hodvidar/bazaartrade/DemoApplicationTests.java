@@ -1,4 +1,4 @@
-package com.bazaartrade.demo;
+package com.hodvidar.bazaartrade;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

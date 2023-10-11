@@ -1,3 +1,18 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
 ### Java ###
 *.class
 *.log
@@ -9,10 +24,20 @@ logs/*
 target/**
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # File-based project format
 *.bak
@@ -51,3 +76,6 @@ build/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+### VS Code ###
+.vscode/

@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <bazaartrade.version>1.0-SNAPSHOT</bazaartrade.version>
         <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -20,16 +19,24 @@
     </parent>
     <groupId>com.bazaartrade</groupId>
     <artifactId>demo</artifactId>
-    <version>?{bazaartrade.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
     <dependencies>
-        <!-- Swagger UI -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <!-- Swagger UI (not compatible with org.springframework.boot version 3+) -->
+        <!--
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
+        -->
 
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
@@ -37,10 +44,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -54,7 +63,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->

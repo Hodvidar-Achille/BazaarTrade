@@ -6,14 +6,18 @@ services:
       context: .
     ports:
       - "8080:8080"
+    container_name: "bazaartrade-app-v1"
     depends_on:
       - mysql
-    command: ["./wait-for-it.sh", "bazaartrade-mysql-1:3306", "0", "java", "-jar", "demo-1.0-SNAPSHOT.jar"]
+    # command: ["./wait-for-it.sh", "bazaartrade-mysql-v1:3306", "--", "java", "-jar", "demo-1.0-SNAPSHOT.jar"]
     networks:
       - app-network
 
   mysql:
     image: mysql:8.0
+    container_name: bazaartrade-mysql-v1
+    restart: always
+    command: --lower_case_table_names=1
     environment:
       MYSQL_ROOT_PASSWORD: "@MDP2023password"
       MYSQL_DATABASE: "BazaarTrade"
@@ -26,8 +30,10 @@ services:
 
   keycloak:
     image: jboss/keycloak
+    container_name: "bazaartrade-keycloak-v1"
     ports:
       - "8081:8080"
+
 networks:
   app-network:
     driver: bridge

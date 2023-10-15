@@ -1,0 +1,8 @@
+Command to access the DB in docker from the cmd on the host machine:
+docker exec -i -t [db-image-name] mysql -uroot -p
+docker exec -i -t bazaartrade-mysql-v1 mysql -uroot -p
+And then enter the DB root password
+
+Commands to test the wait-fot-it.sh bash file:
+1. chmod +x ./wait-for-it.sh
+2. ./wait-for-it.sh www.google.com:80 -- echo "google is up"

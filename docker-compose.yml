@@ -9,7 +9,6 @@ services:
     container_name: "bazaartrade-app-v1"
     depends_on:
       - mysql
-    ## Commented out as we are using custom entrypoint.sh file
     command: ["./wait-for-it.sh", "bazaartrade-mysql-v1:3306", "--", "java", "-jar", "demo-1.0-SNAPSHOT.jar"]
     networks:
       - app-network
@@ -19,7 +18,7 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: bazaartrade-mysql-v1
+    container_name: "bazaartrade-mysql-v1"
     restart: always
     command: --lower_case_table_names=1
     environment:
@@ -31,12 +30,6 @@ services:
       - "3306:3306"
     networks:
       - app-network
-
-  keycloak:
-    image: jboss/keycloak
-    container_name: "bazaartrade-keycloak-v1"
-    ports:
-      - "8081:8080"
 
 networks:
   app-network:

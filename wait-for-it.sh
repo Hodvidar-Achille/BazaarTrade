@@ -3,7 +3,7 @@
 ###########################################################################
 ### https://github.com/vishnubob/wait-for-it/blob/master/wait-for-it.sh ###
 ###########################################################################
-# Use this script to test if a given TCP host/port are available
+# Use this script to test if a given TCP host/port is available
 
 WAITFORIT_cmdname=${0##*/}
 
